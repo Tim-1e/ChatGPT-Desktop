@@ -1,0 +1,46 @@
+[package]
+name = "chatgpt-desktop"
+version = "1.0.1"
+description = "ChatGPT-Desktop"
+authors = ["orangelckc", "bilibili-ayang"]
+license = "MIT"
+repository = "https://github.com/Synaptrix/ChatGPT-Desktop"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+tauri-build = { version = "1.2", features = [] }
+
+[dependencies]
+tauri = { version = "1.2", features = ["api-all", "macos-private-api", "system-tray"] }
+tauri-plugin-autostart = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "dev" }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+window-shadows = "0.2.1"
+tauri-plugin-single-instance = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "dev" }
+current_locale = "0.1.1"
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.11", features = ["json"] }
+base64 = "0.21.0"
+hmac = "0.12.1"
+sha2 = "0.10.6"
+cpal = "0.15.2"
+futures = "0.3.28"
+tokio-tungstenite = "0.18.0"
+url = "2.3.1"
+samplerate = "0.2.4"
+hound="3.5.0"
+nfd2="0.3.1"
+clipboard = "0.5.0"
+pdf-extract="0.6.5"
+
+[dependencies.tauri-plugin-sql]
+git = "https://github.com/tauri-apps/plugins-workspace"
+branch = "dev"
+features = ["sqlite"]
+
+[features]
+# this feature is used for production builds or when `devPath` points to the filesystem
+# DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]
